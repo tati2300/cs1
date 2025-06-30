@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te Amo</title>
+    <h1>TE AMO</h1>
+ 
+
+  <!-- Tulipán en SVG -->
+  
+ <!-- Script para crear flores visuales SVG -->
+  <script>
+    function createFlower(x, y) {
+      const flower = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      flower.setAttribute("class", "flower");
+      flower.setAttribute("viewBox", "0 0 100 100");
+      flower.style.left = `${x}px`;
+      flower.style.top = `${y}px`;
+
+      // pétalos
+      for (let i = 0; i < 6; i++) {
+        const petal = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+        petal.setAttribute("cx", 50);
+        petal.setAttribute("cy", 30);
+        petal.setAttribute("rx", 10);
+        petal.setAttribute("ry", 25);
+        petal.setAttribute("fill", "#f06292");
+        petal.setAttribute("transform", `rotate(${i * 60} 50 50)`);
+        flower.appendChild(petal);
+      }
+
+      // centro
+      const center = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      center.setAttribute("cx", 50);
+      center.setAttribute("cy", 50);
+      center.setAttribute("r", 8);
+      center.setAttribute("fill", "#ffca28");
+      flower.appendChild(center);
+
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 6000);
+    }
+
+    document.body.addEventListener("click", function(e) {
+      createFlower(e.clientX, e.clientY);
+    });
+  </script>
+   <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to top, #fdf6f0, #ffdde1);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      cursor: pointer;
+      position: relative;
+    }
+
+    h1 {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4em;
+      color: #e91e63;
+      animation: pulse 2s infinite;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.1); }
+    }
+
+    .flower {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+      animation: float 6s linear forwards;
+      z-index: 5;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) translateY(-200px) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    svg {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 200px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+
+ 
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to top, #fdf6f0, #ffdde1);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 4em;
+      color: #e91e63;
+      animation: pulse 2s infinite;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .center-flower {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Flor central fija SVG -->
+  <svg class="center-flower" viewBox="0 0 100 100">
+    <!-- pétalos -->
+    <g>
+      <ellipse cx="50" cy="30" rx="15" ry="30" fill="#f06292" transform="rotate(0 50 50)" />
+      <ellipse cx="50" cy="30" rx="15" ry="30" fill="#f06292" transform="rotate(60 50 50)" />
+      <ellipse cx="50" cy="30" rx="15" ry="30" fill="#f06292" transform="rotate(120 50 50)" />
+      <ellipse cx="50" cy="30" rx="15" ry="30" fill="#f06292" transform="rotate(180 50 50)" />
+      <ellipse cx="50" cy="30" rx="15" ry="30" fill="#f06292" transform="rotate(240 50 50)" />
+      <ellipse cx="50" cy="30" rx="15" ry="30" fill="#f06292" transform="rotate(300 50 50)" />
+    </g>
+
+    <!-- centro -->
+    <circle cx="50" cy="50" r="10" fill="#ffca28" />
+  </svg>
+
+<style>
+    .boton-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff5e5e;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton-flotante:hover {
+      background-color: #e04848;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botón flotante -->
+  <button class="boton-flotante" onclick="location.href='../CS/6.-YOUTUBE/17.-FlOR-AMARILLAS-5/flor.html'">
+    Ir a la otra página
+  </button>
+</body>
+</html>
